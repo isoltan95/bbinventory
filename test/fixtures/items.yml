@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: 
+  code: MyString
   name: MyString
   category: MyString
   price: 9.99
 
 two:
-  code: 
+  code: MyString
   name: MyString
   category: MyString
   price: 9.99

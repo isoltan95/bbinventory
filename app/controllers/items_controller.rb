@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
     #otherwise create a new item
     else
       @item = Item.new(item_params)
+      @item.quantity = 1
       respond_to do |format|
         if @item.save
           format.html { render :edit }

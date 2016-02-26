@@ -46,4 +46,5 @@ class ItemsControllerTest < ActionController::TestCase
 
     assert_redirected_to items_path
   end
+
 end

@@ -73,7 +73,7 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-#checkout form redirects to this action. If barcode matches, decrease quantity
+  #checkout form redirects to this action. If barcode matches, decrease quantity
   def check_out
     @item = Item.where(code: item_params[:code]).first
     if @item.nil?

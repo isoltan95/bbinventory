@@ -68,6 +68,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  #form for checking out items only
+  def checkout
+    @item = Item.new
+  end
+
+  def check_out
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

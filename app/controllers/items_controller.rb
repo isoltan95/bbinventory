@@ -73,7 +73,17 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+#checkout form redirects to this action. If barcode matches, decrease quantity
   def check_out
+    @item = Item.where(code: item_params[:code]).first
+    if @item.nil?
+      redirect_to :checkout, notice: 'Item does not exist in inventory.'
+    elsif @item.quantity == 0
+      redirect_to checkout_url, notice: "Cannot checkout. Current quantity of #{@item.name} is 0."
+    else
+      @item.update_attribute(:quantity, @item.quantity-1)
+      redirect_to items_url, notice: "#{@item.name} was successfully checked out."
+    end
   end
 
   private

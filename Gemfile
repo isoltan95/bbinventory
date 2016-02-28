@@ -31,6 +31,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Additional gems that are very useful in Rails development
+group :development do
+  gem 'quiet_assets', '1.1.0'
+  gem 'thin', '1.6.3'
+  gem 'better_errors', '2.0.0'
+  gem 'binding_of_caller', '0.7.2'
+  gem 'meta_request', '0.3.4'
+  gem 'wirble', '0.1.3'
+  gem 'hirb', '0.7.2'
+  gem 'faker', '1.4.3'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -24,15 +24,22 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
-
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+    # does the item already exist, if it does, increase quantity 
+    @item = Item.where(code: item_params[:code]).first
+    if !@item.nil?
+      @item.update_attribute(:quantity, @item.quantity+1)
+      redirect_to @item
+    #otherwise create a new item
+    else
+      @item = Item.new(item_params)
+      @item.quantity = 1
+      respond_to do |format|
+        if @item.save
+          format.html { render :edit }
+        else
+          format.html { render :new }
+          format.json { render json: @item.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -69,6 +76,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:code, :name, :category, :price)
+      params.require(:item).permit(:code, :name, :category, :price, :quantity)
     end
 end

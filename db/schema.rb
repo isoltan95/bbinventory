@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160223071923) do
     t.string   "name"
     t.string   "category"
     t.decimal  "price"
+    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

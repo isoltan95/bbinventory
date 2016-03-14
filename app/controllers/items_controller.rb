@@ -1,10 +1,12 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  has_scope :by_search, allow_blank: true
+  has_scope :for_category, allow_blank: true
   # GET /items
   # GET /items.json
   def index
-    @items = Item.where(["code LIKE ?","%#{params[:search]}%"])
+    @items = Item.all
+    @items = Item.by_search(params[:search]).for_category(params[:category]) if params[:search]
   end
 
   # GET /items/1

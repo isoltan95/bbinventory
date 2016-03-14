@@ -62,8 +62,13 @@ GEM
     execjs (2.6.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    filterrific (2.0.5)
+      rails (>= 3.1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    has_scope (0.7.0)
+      actionpack (>= 4.1, < 5.1)
+      activesupport (>= 4.1, < 5.1)
     hirb (0.7.2)
     i18n (0.7.0)
     jbuilder (2.4.1)
@@ -163,6 +168,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.0.7)
     wirble (0.1.3)
 
 PLATFORMS
@@ -174,6 +180,8 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   faker (= 1.4.3)
+  filterrific
+  has_scope
   hirb (= 0.7.2)
   jbuilder (~> 2.0)
   jquery-rails
@@ -189,4 +197,5 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate (= 3.0.7)
   wirble (= 0.1.3)

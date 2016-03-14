@@ -3,8 +3,11 @@
 <h1>Listing Items</h1>
 <%= form_tag items_path, :method => 'get' do%>
   <%= text_field_tag :search, params[:search]%>
+  <%= select_tag :category, options_for_select(['Coloring book', 'Snack', 'Dental item', 'Big item', 'Reading book']), :prompt => "Select a category...", :selected => params[:category].to_s %>
   <%= submit_tag "Search" %>
+  <%= link_to('Reset filters',home_url) %>
 <% end %>
+
 <table>
   <thead>
     <tr>

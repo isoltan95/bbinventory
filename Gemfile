@@ -30,6 +30,10 @@ gem 'simple_form', '3.1.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# used for filtering displayed info
+gem 'has_scope'
+gem 'filterrific'
+gem 'will_paginate', '3.0.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # Additional gems that are very useful in Rails development

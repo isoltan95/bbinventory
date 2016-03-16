@@ -16,6 +16,7 @@ class Item < ActiveRecord::Base
   scope :for_gender, -> (gender) { where(gender: gender) }
   scope :by_code, -> (code) { where("code LIKE ?", code) }
   scope :alphabetical, -> { order(:name) }
+  scope :for_category, -> (category) { joins(:category).where(name: category) }
 
   def self.options_for_category
   	['Coloring book', 'Snack', 'Dental item', 'Big item', 'Reading book']

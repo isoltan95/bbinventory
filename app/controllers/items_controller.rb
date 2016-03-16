@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  has_scope :by_search, allow_blank: true
-  has_scope :for_category, allow_blank: true
+
   # GET /items
   # GET /items.json
   def index
@@ -19,6 +18,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @item.category = Category.new
   end
 
   # GET /items/1/edit
@@ -41,6 +41,7 @@ class ItemsController < ApplicationController
         if @item.save
           format.html { render :edit }
         else
+          @item.category = Category.new
           format.html { render :new }
           format.json { render json: @item.errors, status: :unprocessable_entity }
         end
@@ -98,6 +99,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:code, :name, :category, :price, :quantity)
+      params.require(:item).permit(:code, :name, :gender, :age, :quantity, :notes, category_attributes: [:id, :name])
     end
 end

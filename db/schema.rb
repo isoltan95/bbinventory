@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160316162152) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "barcode"
+    t.string   "code"
     t.string   "name"
     t.string   "gender"
     t.integer  "age"

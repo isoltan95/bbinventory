@@ -1,5 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :category
+  
+  accepts_nested_attributes_for :category
 
   filterrific(
   	default_settings: { sorted_by: 'name'},
@@ -16,7 +18,7 @@ class Item < ActiveRecord::Base
   scope :for_gender, -> (gender) { where(gender: gender) }
   scope :by_code, -> (code) { where("code LIKE ?", code) }
   scope :alphabetical, -> { order(:name) }
-  scope :for_category, -> (category) { joins(:category).where(name: category) }
+  scope :for_category, -> (category) { joins(:category).where('categories.name = ?', category) }
 
   def self.options_for_category
   	['Coloring book', 'Snack', 'Dental item', 'Big item', 'Reading book']

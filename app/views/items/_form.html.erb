@@ -1,4 +1,4 @@
-<%= simple_form_for(@item) do |f| %>
+<%= simple_form_for(@item) do |item_form| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -10,11 +10,12 @@
     </div>
   <% end %>
   <fieldset>
-    <%= f.input :name, input_html: {class: "avg"} %>
-    <%= f.input :category, collection:['Coloring book', 'Snack', 'Dental item', 'Big item', 'Reading book'], as: :radio_buttons %>
-    <%= f.input :price, input_html: {class: "avg"} %>
-    <%= f.input :quantity, input_html: {class: "avg"} %>
+    <%= item_form.input :name, input_html: {class: "avg"} %>
+    <%= item_form.input :gender, collection: ['Male', 'Female'], as: :radio_buttons %>
+    <%= item_form.input :age, collection: ['a', 'b', 'c'] %>
+    <%= item_form.input :quantity, input_html: {class: "avg"} %>
+    <%= item_form.input :category, collection: Category.all %>
     <div class="actions">
-      <%= f.submit %>
+      <%= item_form.submit %>
   </fieldset>
 <% end %>

@@ -1,0 +1,19 @@
+<% if @categories.empty? %>
+  <p><em>There are no categories. Add one <%=link_to "here.", new_category_path %></em></p>
+<% else %>
+  <table>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.name %></td>
+          <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>
+<%= link_to 'Check In', new_item_path %>
+<%= link_to 'Check Out', checkout_path %>
+<%= link_to 'Add a category', new_category_path %>
+</div>

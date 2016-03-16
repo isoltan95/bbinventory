@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  belongs_to :category
 
   filterrific(
   	default_settings: { sorted_by: 'name'},

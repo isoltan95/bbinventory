@@ -5,8 +5,10 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
-    @items = Item.by_search(params[:search]).for_category(params[:category]) if params[:search]
+    @filterrific = initialize_filterrific(Item, params[:filterrific],
+      select_options: { for_category: Item.options_for_category },
+    ) or return
+    @items = @filterrific.find.page(params[:page])
   end
 
   # GET /items/1

@@ -1,42 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Items</h1>
-<%= form_tag items_path, :method => 'get' do%>
-  <%= text_field_tag :search, params[:search]%>
-  <%= select_tag :category, options_for_select(['Coloring book', 'Snack', 'Dental item', 'Big item', 'Reading book']), :prompt => "Select a category...", :selected => params[:category].to_s %>
-  <%= submit_tag "Search" %>
-  <%= link_to('Reset filters',home_url) %>
+<%# app/views/restaurants/index.html.erb %>
+<%= form_for_filterrific @filterrific do |f| %>
+  <div class="row">
+    <div class="span1 label_box">
+      <h3>Search:</h3>
+      <%= f.text_field(:by_search, class:'filterrific-periodically-observed') %>
+    </div>
+    <div class="span1 label_box">
+      <h3>Select category:</h3>
+      <%= f.select(:for_category, @filterrific.select_options[:for_category], { include_blank: '- Select -' }) %>
+    </div>
+    <%= link_to('Reset filters',reset_filterrific_url) %>
+  </div>
 <% end %>
+<%= render( partial: 'items/list', locals: { items: @items} )%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.code %></td>
-        <td><%= item.name %></td>
-        <td><%= item.category %></td>
-        <td><%= item.price %></td>
-        <td><%= item.quantity %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Check In', new_item_path %>
-<%= link_to 'Check Out', checkout_path %>

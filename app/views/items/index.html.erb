@@ -5,8 +5,12 @@
 <%= form_for_filterrific @filterrific do |f| %>
   <div class="row">
     <div class="span1 label_box">
-      <h3>Search:</h3>
+      <h3>Search by name:</h3>
       <%= f.text_field(:by_search, class:'filterrific-periodically-observed') %>
+    </div>
+    <div class="span1 label_box">
+      <h3>Search by barcode:</h3>
+      <%= f.text_field(:by_code, class:'filterrific-periodically-observed') %>
     </div>
     <div class="span1 label_box">
       <h3>Select category:</h3>

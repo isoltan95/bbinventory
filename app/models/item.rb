@@ -11,8 +11,8 @@ class Item < ActiveRecord::Base
   )
 
   #scopes
-  scope :for_category, ->(category) { where(category: category) }
   scope :by_search, -> (search) { where("name LIKE ?", "%#{search}%") }
+  scope :for_gender, -> (gender) { where(gender: gender) }
   scope :by_code, -> (code) { where("code LIKE ?", code) }
   scope :alphabetical, -> { order(:name) }
 

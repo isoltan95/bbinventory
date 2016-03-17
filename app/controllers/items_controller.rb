@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  has_scope :by_search, allow_blank: true
-  has_scope :for_category, allow_blank: true
+
   # GET /items
   # GET /items.json
   def index
@@ -31,8 +30,7 @@ class ItemsController < ApplicationController
     # does the item already exist, if it does, increase quantity 
     @item = Item.where(code: item_params[:code]).first
     if !@item.nil?
-      @item.update_attribute(:quantity, @item.quantity+1)
-      redirect_to @item
+      redirect_to checkin_url(@item, id: @item.id)
     #otherwise create a new item
     else
       @item = Item.new(item_params)
@@ -41,6 +39,7 @@ class ItemsController < ApplicationController
         if @item.save
           format.html { render :edit }
         else
+          @item.category = Category.new
           format.html { render :new }
           format.json { render json: @item.errors, status: :unprocessable_entity }
         end
@@ -71,7 +70,7 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   #form for checking out items only
   def checkout
     @item = Item.new
@@ -89,6 +88,16 @@ class ItemsController < ApplicationController
       redirect_to items_url, notice: "#{@item.name} was successfully checked out."
     end
   end
+  
+  def checkin
+    @item = Item.find(params[:id])
+  end
+
+  def check_in
+    @item = Item.find(params[:id])
+    @item.update_attribute(:quantity, @item.quantity + params[:increase].to_i)
+    redirect_to items_url
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -98,6 +107,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:code, :name, :category, :price, :quantity)
+      params.require(:item).permit(:code, :name, :quantity, :category)
     end
 end

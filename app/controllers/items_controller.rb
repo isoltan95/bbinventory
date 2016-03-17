@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @filterrific = initialize_filterrific(Item, params[:filterrific],
-      select_options: { for_category: Item.options_for_category },
+      select_options: { for_category: Category.all.name },
     ) or return
     @items = @filterrific.find.page(params[:page])
   end

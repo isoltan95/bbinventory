@@ -20,8 +20,4 @@ class Item < ActiveRecord::Base
   scope :alphabetical, -> { order(:name) }
   scope :for_category, -> (category) { joins(:category).where('categories.name = ?', category) }
 
-  def self.options_for_category
-  	['Coloring book', 'Snack', 'Dental item', 'Big item', 'Reading book']
-  end
-
 end

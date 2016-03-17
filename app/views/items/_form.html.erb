@@ -11,10 +11,10 @@
   <% end %>
   <fieldset>
     <%= item_form.input :name, input_html: {class: "avg"} %>
-    <%= item_form.input :gender, collection: ['Male', 'Female'], as: :radio_buttons %>
-    <%= item_form.input :age, collection: ['a', 'b', 'c'] %>
+    <%= item_form.input :gender, collection: ['Boy', 'Girl'], as: :radio_buttons, input_html: {class: "avg"} %>
+    <%= item_form.input :age, collection: ['a', 'b', 'c'],input_html: {class: "avg"} %>
     <%= item_form.input :quantity, input_html: {class: "avg"} %>
-    <%= item_form.input :category, collection: Category.all %>
+    <%= item_form.input :category_id, collection: Category.all, input_html: {class: "avg"} %>
     <div class="actions">
       <%= item_form.submit %>
   </fieldset>

@@ -1,5 +1,5 @@
 <div id="results">
-<% if @items.empty? %>
+<% if @items.empty? or @items.nil? %>
   <p><em>There are no items in this category.</em></p>
 <% else %>
   <table>

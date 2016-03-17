@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Code:</strong>
+  <%= @item.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @item.category %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @item.quantity %>
+</p>
+<%= form_tag check_in_path, :method => 'get' do%>
+  <%= hidden_field_tag :id, params[:id] %>
+  <strong>Increase quantity by:</strong>
+  <%= number_field_tag :increase, 1%>
+  <%= submit_tag "Increase" %>
+<% end %>

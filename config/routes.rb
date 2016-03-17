@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   resources :basket_items
   resources :baskets
   resources :categories

@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :quantity
       t.string :name
       t.integer :gender
-      t.gender :age
+      t.integer :age
       t.boolean :type
       t.text :notes
       t.integer :category_id

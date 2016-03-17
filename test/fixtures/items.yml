@@ -5,7 +5,7 @@ one:
   quantity: 1
   name: MyString
   gender: 1
-  age: 
+  age: 1
   type: false
   notes: MyText
   category_id: 1
@@ -15,7 +15,7 @@ two:
   quantity: 1
   name: MyString
   gender: 1
-  age: 
+  age: 1
   type: false
   notes: MyText
   category_id: 1

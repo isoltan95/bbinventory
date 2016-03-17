@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @filterrific = initialize_filterrific(Item, params[:filterrific],
-      select_options: { for_category: Item.options_for_category },
+      select_options: { for_category: Category.alphabetical.all.map(&:name) },
     ) or return
     @items = @filterrific.find.page(params[:page])
   end
@@ -107,6 +107,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:code, :name, :quantity, :category)
+      params.require(:item).permit(:code, :name, :gender, :age, :quantity, :notes, category_attributes: [:id, :name])
     end
 end

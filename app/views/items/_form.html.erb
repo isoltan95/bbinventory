@@ -1,4 +1,4 @@
-<%= simple_form_for(@item) do |f| %>
+<%= simple_form_for(@item) do |item_form| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -10,10 +10,18 @@
     </div>
   <% end %>
   <fieldset>
+<<<<<<< HEAD
     <%= f.input :name, input_html: {class: "avg"} %>
     <%= f.input :category, collection:['Coloring book', 'Snack', 'Dental item', 'Big item', 'Reading book'], as: :radio_buttons %>
     <%= f.input :quantity, input_html: {class: "avg"} %>
+=======
+    <%= item_form.input :name, input_html: {class: "avg"} %>
+    <%= item_form.input :gender, collection: ['Boy', 'Girl'], as: :radio_buttons, input_html: {class: "avg"} %>
+    <%= item_form.input :age, collection: ['a', 'b', 'c'],input_html: {class: "avg"} %>
+    <%= item_form.input :quantity, input_html: {class: "avg"} %>
+    <%= item_form.input :category_id, collection: Category.all, input_html: {class: "avg"} %>
+>>>>>>> filterrific
     <div class="actions">
-      <%= f.submit %>
+      <%= item_form.submit %>
   </fieldset>
 <% end %>

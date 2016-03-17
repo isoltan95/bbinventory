@@ -10,18 +10,13 @@
     </div>
   <% end %>
   <fieldset>
-<<<<<<< HEAD
-    <%= f.input :name, input_html: {class: "avg"} %>
-    <%= f.input :category, collection:['Coloring book', 'Snack', 'Dental item', 'Big item', 'Reading book'], as: :radio_buttons %>
-    <%= f.input :quantity, input_html: {class: "avg"} %>
-=======
     <%= item_form.input :name, input_html: {class: "avg"} %>
     <%= item_form.input :gender, collection: ['Boy', 'Girl'], as: :radio_buttons, input_html: {class: "avg"} %>
     <%= item_form.input :age, collection: ['a', 'b', 'c'],input_html: {class: "avg"} %>
     <%= item_form.input :quantity, input_html: {class: "avg"} %>
     <%= item_form.input :category_id, collection: Category.all, input_html: {class: "avg"} %>
->>>>>>> filterrific
     <div class="actions">
       <%= item_form.submit %>
+    </div>
   </fieldset>
 <% end %>

@@ -8,10 +8,6 @@ class Category < ActiveRecord::Base
   # Validations
   validate :category_is_not_a_duplicate, on: :create
 
-  def name
-  	"#{self.name}"
-  end
-
   def already_exists?
     Category.where(name: self.name).size == 1
   end
@@ -20,7 +16,7 @@ class Category < ActiveRecord::Base
   private
 
   def category_is_not_a_duplicate
-  	returns true if !self.already_exists?
+  	return true if !self.already_exists?
     if self.already_exists?
       errors.add(:category, "#{self.name} already exists")
     end

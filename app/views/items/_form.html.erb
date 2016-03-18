@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :barcode %><br>
-    <%= f.text_field :barcode, disabled: true %>
+    <%= f.text_field :barcode %>
   </div>
 
   <div class="field">
@@ -36,13 +36,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :type, 'Donation' %><br>
-    <%= f.radio_button :type, 0 %>
-
-    <%# f.radio_button :type, 0 %>
-    <%# f.label :type, 'Donation'%>
-    <%# f.radio_button :type, 1 %>
-    <%# f.label :type, 'Bought' %>
+    <%# f.label :donated %><br>
+    <%= f.check_box :donated %>
+    <%= f.label :donated, 'Donation' %>
+    <%# f.radio_button :donated, 0 %>
+    <%# f.label :donated, 'Donation'%>
+    <%# f.radio_button :donated, 1 %>
+    <%# f.label :donated, 'Bought' %>
   </div>
 
   <div class="field">
@@ -52,7 +52,7 @@
   <div class="field">
     <%= f.label :category_id %><br>
     <%# f.number_field :category_id %>
-    <%= f.select(:category_id, categories) %>
+    <%= f.collection_select :category_id, Category.alphabetical, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

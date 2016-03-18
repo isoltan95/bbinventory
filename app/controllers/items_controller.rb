@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.barcode = barcode
     end
-    @categories = Category.alphabetical.map{|c| c.name}
+    @categories = Category.alphabetical
     # barcode = params[:barcode]
     # @item = Item.where("barcode=?", @bcode)
     # redirect_to action: "new", barcode: @bcode
@@ -94,6 +94,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:barcode, :quantity, :name, :gender, :age, :type, :notes, :category_id)
+      params.require(:item).permit(:barcode, :quantity, :name, :gender, :age, :donated, :notes, :category_id)
     end
 end

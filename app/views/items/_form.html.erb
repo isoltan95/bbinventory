@@ -36,9 +36,9 @@
   </div>
   <div class="field">
     <%= f.label :type %><br>
-    <%= f.radio_button :type, 'Donation', :checked => true, :value => 0 %>
+    <%= f.radio_button :type, 0, :checked => true %>
     <%= f.label :type_donation, 'Donation'%>
-    <%= f.radio_button :type, 'Bought', :value => 1 %>
+    <%= f.radio_button :type, 1 %>
     <%= f.label :type_bought, 'Bought'%>
   </div>
 
@@ -48,7 +48,8 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
+    <%# f.number_field :category_id %>
+    <%= f.select(:category_id, categories) %>
   </div>
   <div class="actions">
     <%= f.submit %>

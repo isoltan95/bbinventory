@@ -35,6 +35,7 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.barcode = barcode
     end
+    @categories = Category.alphabetical.map{|c| c.name}
     # barcode = params[:barcode]
     # @item = Item.where("barcode=?", @bcode)
     # redirect_to action: "new", barcode: @bcode

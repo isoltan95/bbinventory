@@ -24,19 +24,15 @@ class Item < ActiveRecord::Base
   scope :for_category, -> (category) { joins(:category).where('categories.name = ?', category) }
 
   # Validations
-  validates_presence_of :barcode, :name, :quantity, on: :update
-  #validates_inclusion_of :gender, in: GENDER_LIST.map{|key, value| value}, message: "is not an option", on: :update
-  #validates_inclusion_of :age, in: AGE_LIST.map{|key, value| value}, message: "is not an option", on: :update
+  validates_presence_of :barcode, :name, :quantity, :category_id, on: :update
+  validates_inclusion_of :gender, in: GENDER_LIST.map{|key, value| value}, message: "is not an option", on: :update
+  validates_inclusion_of :age, in: AGE_LIST.map{|key, value| value}, message: "is not an option", on: :update
   validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 1, on: :create
   validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 0, on: :update
+  #validate :category_is_in_system, on: :update
 
-  def self.get_gender
-    if self.gender == 1
-      "Neutral"
-    elsif self.gender == 2
-      "Girl"
-    elsif self.gender ==3
-      "Boy"
-    end
-  end
+  private
+
+
+
 end

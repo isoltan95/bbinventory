@@ -1,6 +1,29 @@
 <%= form_for(@item) do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited barcode from being entered.</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :barcode %><br>
+    <%= f.text_field :barcode, autofocus: true %>
+  </div> 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<!-- What happens if donation & self-bought items have same barcode? -->
+
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
       <ul>
@@ -36,12 +59,8 @@
   </div>
   <div class="field">
     <%= f.label :type %><br>
-    <%= f.radio_button :type, 'Donation', :checked => true, :value => 0 %>
-    <%= f.label :type_donation, 'Donation'%>
-    <%= f.radio_button :type, 'Bought', :value => 1 %>
-    <%= f.label :type_bought, 'Bought'%>
+    <%= f.check_box :type, :value => 0 %>
   </div>
-
   <div class="field">
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :baskets
   resources :categories
   resources :items
+
+  #get 'get_new_barcode' => 'items#get_new_barcode', as: :get_new_barcode
+  get 'get_new_barcode' => 'items#get_new_barcode', as: :get_new_barcode
+  post 'get_new_barcode' => 'items#get_new_item_info', as: :get_new_item_info
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

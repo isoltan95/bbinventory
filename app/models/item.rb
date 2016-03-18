@@ -33,7 +33,7 @@ class Item < ActiveRecord::Base
 	scope :by_desc_count, -> { order("quantity DESC")}
 	scope :for_low_stock, -> { where("quantity <= ?", MINIMUM)}
 	scope :not_in_stock, -> { where("quantity = ?", 0)}
-	scope :in_stock, -> { where)"quantity > ?", 0}
+	scope :in_stock, -> { where("quantity > ?", 0)}
 	# donations vs. self-bought
 	scope :by_donation, -> { where(type: true)} # donation = True
 	scope :by_self_bought, -> { where(type: false)} # Self_bought = False

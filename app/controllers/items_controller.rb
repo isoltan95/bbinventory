@@ -14,7 +14,31 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new
+    # @item = Item.new
+    # @bcode = params[:barcode]
+    # i = Item.where("barcode = ?", @bcode)
+    # if (i!=nil):
+    redirect_to get_new_barcode_path
+  end
+
+  # NEW ITEM -> BARCODE -> FORM -> SAVE ITEM
+
+  def get_new_barcode
+    # @item = Item.new
+    # redirect_to get_new_item_info_path(@item)
+  end
+
+  def get_new_item_info
+    barcode = params[:barcode]
+    @item = Item.find_by barcode: barcode 
+    if @item.nil?
+      @item = Item.new
+      @item.barcode = barcode
+    end
+    # barcode = params[:barcode]
+    # @item = Item.where("barcode=?", @bcode)
+    # redirect_to action: "new", barcode: @bcode
+    render 'new'
   end
 
   # GET /items/1/edit

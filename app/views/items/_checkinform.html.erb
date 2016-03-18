@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Code:</strong>
-  <%= @item.code %>
+  <%= @item.barcode %>
 </p>
 
 <p>
@@ -15,9 +15,26 @@
 </p>
 
 <p>
+  <strong>Gender:</strong>
+  <%= @item.gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @item.age %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @item.notes %>
+</p>
+
+<p>
   <strong>Quantity:</strong>
   <%= @item.quantity %>
 </p>
+
+
 <%= form_tag check_in_path, :method => 'get' do%>
   <%= hidden_field_tag :id, params[:id] %>
   <strong>Increase quantity by:</strong>

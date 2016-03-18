@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     # does the item already exist, if it does, increase quantity 
-    @item = Item.where(code: item_params[:code]).first
+    @item = Item.where(barcode: item_params[:barcode]).first
     if !@item.nil?
       redirect_to checkin_url(@item, id: @item.id)
     #otherwise create a new item
@@ -78,7 +78,7 @@ class ItemsController < ApplicationController
 
   #checkout form redirects to this action. If barcode matches, decrease quantity
   def check_out
-    @item = Item.where(code: item_params[:code]).first
+    @item = Item.where(barcode: item_params[:barcode]).first
     if @item.nil?
       redirect_to :checkout, notice: 'Item does not exist in inventory.'
     elsif @item.quantity == 0
@@ -107,6 +107,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:code, :name, :gender, :age, :quantity, :notes, :category_id)
+      params.require(:item).permit(:barcode, :name, :gender, :age, :quantity, :notes, :category_id)
     end
 end

@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20160316162152) do
 
   create_table "items", force: :cascade do |t|
     t.integer  "category_id"
-    t.string   "code"
+    t.string   "barcode"
     t.string   "name"
     t.string   "gender"
-    t.integer  "age"
+    t.string   "age"
     t.integer  "quantity"
     t.string   "notes"
     t.datetime "created_at",  null: false

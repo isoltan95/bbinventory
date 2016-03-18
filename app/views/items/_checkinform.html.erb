@@ -9,10 +9,16 @@
   <%= @item.name %>
 </p>
 
+
 <p>
   <strong>Category:</strong>
-  <%= @item.category.name %>
+  <% if !@item.category.nil? %>
+    <%= @item.category.name %>
+  <% else %>
+    <td></td>
+  <% end %>
 </p>
+
 
 <p>
   <strong>Gender:</strong>

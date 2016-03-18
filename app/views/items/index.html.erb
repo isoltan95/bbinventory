@@ -16,6 +16,10 @@
       <h3>Select category:</h3>
       <%= f.select(:for_category, @filterrific.select_options[:for_category], { include_blank: '- Select -' }) %>
     </div>
+        <div class="span1 label_box">
+      <h3>Select age:</h3>
+      <%= f.select(:by_age, @filterrific.select_options[:by_age], { include_blank: '- Select -' }) %>
+    </div>
     <%= link_to('Reset filters',reset_filterrific_url) %>
   </div>
 <% end %>

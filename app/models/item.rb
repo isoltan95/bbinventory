@@ -12,16 +12,18 @@ class Item < ActiveRecord::Base
   	  :sorted_by,
   	  :for_category,
   	  :by_search,
-  	  :by_barcode
+  	  :by_barcode,
+      :by_age
   	] 
   )
 
   #scopes
+  scope :alphabetical, -> { order(:name) }
   scope :by_search, -> (search) { where("name LIKE ?", "%#{search}%") }
   scope :for_gender, -> (gender) { where(gender: gender) }
   scope :by_barcode, -> (barcode) { where("code LIKE ?", barcode) }
-  scope :alphabetical, -> { order(:name) }
   scope :for_category, -> (category) { joins(:category).where('categories.name = ?', category) }
+  scope :by_age, -> (age) { where(age: age) }
 
   # Validations
   validates_presence_of :barcode, :name, :quantity, :category_id, on: :update

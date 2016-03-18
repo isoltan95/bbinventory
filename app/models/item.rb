@@ -4,8 +4,6 @@ class Item < ActiveRecord::Base
 	GENDER_LIST = [['Neutral', 0], ['Girl', 1], ['Boy', 2]]
 	# get an array of age category (in years)
 	AGE_LIST = [['0-2', 0], ['3-10', 1], ['11-21', 2]]
-	# item type
-	TYPE_LIST = [['Donation', 0], ['Bought', 1]]
 	# Minimum number of items in stock = 10
 	MINIMUM = 10
 	
@@ -37,14 +35,13 @@ class Item < ActiveRecord::Base
 	scope :not_in_stock, -> { where("quantity = ?", 0)}
 	scope :in_stock, -> { where)"quantity > ?", 0}
 	# donations vs. self-bought
-	scope :by_donation, -> { where("type = ?", 0)} # donation = True
-	scope :by_self_bought, -> { where("type = ?", 1)} # Self_bought = False
+	scope :by_donation, -> { where(donated: true)} # donation = True
+	scope :by_self_bought, -> { where(donated: false)} # Self_bought = False
 
 	# Validations
 	validates_presence_of :barcode, :name, :quantity
 	validates_inclusion_of :gender, in: GENDER_LIST.to_h.values, message: "is not an option"
 	validates_inclusion_of :age, in: AGE_LIST.to_h.values, message: "is not an option"
-	validates_inclusion_of :type, in: TYPE_LIST.to_h.values, message: "is not an option"
 	validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 1, on: :create
 	validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 0, on: :update
 

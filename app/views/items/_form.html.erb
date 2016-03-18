@@ -34,12 +34,13 @@
     <%# f.number_field :age %>
     <%= f.select(:age, Item::AGE_LIST) %>
   </div>
+
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.radio_button :type, 0, :checked => true %>
-    <%= f.label :type_donation, 'Donation'%>
-    <%= f.radio_button :type, 1 %>
-    <%= f.label :type_bought, 'Bought'%>
+    <%# f.label :type, 'Donation' %><br>
+    <%= f.check_box :type%>
+    <%= f.label :type, 'Donation'%>
+    <%# f.radio_button :type, false %>
+    <%# f.label :type, 'Bought' %>
   </div>
 
   <div class="field">

@@ -36,10 +36,12 @@
   </div>
 
   <div class="field">
-    <%# f.label :type, 'Donation' %><br>
-    <%= f.check_box :type%>
-    <%= f.label :type, 'Donation'%>
-    <%# f.radio_button :type, false %>
+    <%= f.label :type, 'Donation' %><br>
+    <%= f.radio_button :type, 0 %>
+
+    <%# f.radio_button :type, 0 %>
+    <%# f.label :type, 'Donation'%>
+    <%# f.radio_button :type, 1 %>
     <%# f.label :type, 'Bought' %>
   </div>
 

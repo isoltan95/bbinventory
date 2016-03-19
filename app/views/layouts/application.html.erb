@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BB</title>
+  <title>Beverly's Birthdays Inventory Management System</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
-<%= yield %>
+    <!-- Top bar NAVIGATION -->
+    <div>
+      <%= render 'partials/top_nav' %>
+    </div>
+
+    <!-- CONTENT -->
+    <div class= "container">
+
+      <!--flash alert box for form -->
+      <% flash.each do |name, msg| %>
+      <div class="alert-box <%= name == :notice ? "success" : "warning" %> radius">
+        <a href="#" class="close">&times;</a>
+        <%= msg %>
+      </div>
+      <% end %>
+
+      <div class="row">
+
+        <!-- side bar navigation -->
+        <div class = "col s3 card">
+          <%= render 'partials/quick_links' %>
+        </div>
+
+        <!--Main content-->
+        <div class="col s9">
+          <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <% end %>
+          <%= yield %>
+          <%= javascript_include_tag "application" %>
+        </div>
+
+      </div>  
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer brown lighten-3">
+      <%= render 'partials/footer' %>
+    </footer>
+
+<%# yield %>
 
 </body>
+
 </html>

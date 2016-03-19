@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
 
-	include BBHelpers::Cart
+	include BbInventoryHelpers::Cart
 
 	def add_to_cart
 		@item = Item.find(params[:id])

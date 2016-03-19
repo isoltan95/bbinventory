@@ -20,7 +20,7 @@
 			<td><%= link_to oi.item.name, item_path(oi.item) %></td>
 			<td><%= oi.item.category.titleize %></td> 
 			<td><%= oi.quantity %></td>
-			<td><%= link_to remove_item_path(oi.item.id), data: {position: 'right', tooltip: 'Remove from Cart'}%></td>
+			<td><%= link_to 'Remove From Cart', remove_item_path(oi.item.id) %></td>
 		</tr>
 		<% end %>
 	</table>

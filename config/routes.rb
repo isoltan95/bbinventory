@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   resources :basket_items
   resources :baskets
   resources :categories
-  resources :items
   resources :carts
 
-  #get 'get_new_barcode' => 'items#get_new_barcode', as: :get_new_barcode
   get 'get_new_barcode' => 'items#get_new_barcode', as: :get_new_barcode
   post 'get_new_barcode' => 'items#get_new_item_info', as: :get_new_item_info
 

@@ -1,6 +1,6 @@
 class BasketsController < ApplicationController
 
-  include BBHelpers::Cart
+  include BbInventoryHelpers::Cart
 
   before_action :set_basket, only: [:show, :edit, :update, :destroy]
 
@@ -13,6 +13,7 @@ class BasketsController < ApplicationController
   # GET /baskets/1
   # GET /baskets/1.json
   def show
+    @basket_items = @basket.basket_items
   end
 
   # GET /baskets/new
@@ -32,9 +33,13 @@ class BasketsController < ApplicationController
   # POST /baskets.json
   def create
     @basket = Basket.new(basket_params)
+    @basket.checkout_date = Date.today
 
     respond_to do |format|
       if @basket.save
+        # update basket_items from cart
+        save_each_item_in_cart(@basket)
+
         format.html { redirect_to @basket, notice: 'Basket was successfully created.' }
         format.json { render :show, status: :created, location: @basket }
       else

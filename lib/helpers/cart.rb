@@ -1,4 +1,4 @@
-module BBHelpers
+module BbInventoryHelpers
   module Cart
     # For this application, our cart is simply a hash consisting
     # of item_ids as keys and quantities as values.  The hash is 
@@ -50,5 +50,6 @@ module BBHelpers
         BasketItem.create(info)
       end
     end
+
   end
 end

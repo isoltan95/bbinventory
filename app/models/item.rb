@@ -46,5 +46,8 @@ class Item < ActiveRecord::Base
 	validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 0, on: :update
 
 	# Other methods
+	def increase_quantity (incr)
+		self.quantity += incr
+	end
 
 end

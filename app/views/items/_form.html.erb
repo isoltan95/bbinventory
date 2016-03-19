@@ -17,7 +17,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :quantity %><br>
+    <% if controller.action_name.capitalize == 'Update'%>
+      <%= f.label :quantity, 'Increase quantity by' %><br>
+    <% else %>
+      <%= f.label :quantity, 'Increase quantity by' %><br>
+    <% end %>
     <%= f.number_field :quantity, :value => 1%>
   </div>
   <div class="field">

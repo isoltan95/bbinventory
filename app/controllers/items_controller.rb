@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    #create cart
+    # create cart
     create_cart
     @items = Item.all
     @gender_list = Item::GENDER_LIST.to_h
@@ -72,8 +72,12 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    quantity_increase = item_params[:quantity].to_i
+    previous_quantity = @item.quantity
     respond_to do |format|
       if @item.update(item_params)
+        @item.quantity = previous_quantity + quantity_increase
+        @item.save 
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else

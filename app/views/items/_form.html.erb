@@ -1,4 +1,4 @@
-<%= simple_form_for(@item) do |item_form| %>
+<%= simple_form_for(@item) do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -10,14 +10,15 @@
     </div>
   <% end %>
   <fieldset>
-    <%= item_form.input :name, input_html: {class: "avg"} %>
-    <%= item_form.input :gender, collection: Item::GENDER_LIST, as: :radio_buttons, input_html: {class: "avg"} %>
-    <%= item_form.input :age, collection: Item::AGE_LIST, input_html: {class: "avg"} %>
-    <%= item_form.input :quantity, input_html: {class: "avg", value: 1 } %>
-    <%= item_form.input :category_id, collection: Category.all, input_html: {class: "avg"} %>
-    <%= item_form.input :notes, as: :text, input_html: { class: "avg" } %>
+    <%= f.input :name, input_html: {class: "avg"} %>
+    <%= f.input :gender, collection: Item::GENDER_LIST, as: :radio_buttons, input_html: {class: "avg"} %>
+    <%= f.input :age, collection: Item::AGE_LIST, input_html: {class: "avg"} %>
+    <%= f.input :quantity, input_html: {class: "avg", value: 1 } %>
+    <%= f.input :category_id, collection: Category.all, input_html: {class: "avg"} %>
+    <%= f.input :notes, as: :text, input_html: { class: "avg" } %>
+    <%= f.input :donated, as: :boolean, boolean_style: :inline %>
     <div class="actions">
-      <%= item_form.submit %>
+      <%= f.submit %>
     </div>
   </fieldset>
 <% end %>

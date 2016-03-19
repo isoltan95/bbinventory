@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :age
       t.integer :quantity
       t.string :notes
-      
+      t.boolean :donated
       t.timestamps null: false
     end
   end

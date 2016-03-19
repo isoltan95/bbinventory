@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160316162152) do
     t.string   "age"
     t.integer  "quantity"
     t.string   "notes"
+    t.boolean  "donated"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

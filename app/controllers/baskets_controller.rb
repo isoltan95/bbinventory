@@ -20,7 +20,7 @@ class BasketsController < ApplicationController
   def new
     @basket = Basket.new
     @basket_items_in_cart = get_list_of_items_in_cart
-    if @order_items_in_cart.empty?
+    if @basket_items_in_cart.empty?
         redirect_to items_path, notice: "No items in cart to checkout"
     end
   end

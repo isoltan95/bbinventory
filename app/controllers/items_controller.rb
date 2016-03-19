@@ -1,9 +1,14 @@
 class ItemsController < ApplicationController
+
+  include BbInventoryHelpers::Cart
+
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
   def index
+    #create cart
+    create_cart
     @items = Item.all
   end
 

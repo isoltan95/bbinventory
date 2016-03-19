@@ -2,7 +2,7 @@
 	<h4>Cart</h4>
 	<% if ! @basket_items_in_cart.empty? %>
 		<%= link_to "Clear Cart", clear_cart_path%>
-		<%= link_to "Checkout", new_order_path %>
+		<%= link_to "Checkout", new_basket_path %>
 	<% end %>
 </div>
 
@@ -18,7 +18,7 @@
 		<% @basket_items_in_cart.each do |oi| %>
 		<tr>
 			<td><%= link_to oi.item.name, item_path(oi.item) %></td>
-			<td><%= oi.item.category.titleize %></td> 
+			<td><%= oi.item.category.name %></td> 
 			<td><%= oi.quantity %></td>
 			<td><%= link_to 'Remove From Cart', remove_item_path(oi.item.id) %></td>
 		</tr>

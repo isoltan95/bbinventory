@@ -5,8 +5,8 @@ class Basket < ActiveRecord::Base
 	has_many :items, through: :basket_items
 
 	# Scopes
-	scope :chronological, -> { order (checkout_date: :desc) }
-	scope :for_date, -> (d) { where (date: d)}
+	scope :chronological, -> { order ("checkout_date DESC") }
+	# scope :for_date, -> (d) { where ("checkout_date = ?", d) }
 
 	# Validations
 	validates_date :checkout_date

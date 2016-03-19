@@ -10,6 +10,8 @@ class ItemsController < ApplicationController
     #create cart
     create_cart
     @items = Item.all
+    @gender_list = Item::GENDER_LIST.to_h
+    @age_list = Item::AGE_LIST.to_h 
   end
 
   # GET /items/1

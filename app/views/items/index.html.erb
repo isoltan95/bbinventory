@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class = "row valign-wrapper">
+  <h4 class="valign col s5">Items Listing</h4>
+  <%= link_to "Add New Item", new_item_path, class: "waves-effect waves-light btn col s3 valign purple lighten-5 light-blue-text text-darken-4" %>
+  <%= link_to "Show Cart", show_cart_path, class: "waves-effect waves-light btn col s3 offset-s1 valign green lighten-5 light-blue-text text-darken-4" %>
+</div>
 
-<h1>Listing Items</h1>
+<!-- <p id="notice"><%= notice %></p>
 
-<table>
+<h3>Listing Items</h3> -->
+
+<table class="hoverable col s12">
   <thead>
     <tr>
       <th>Barcode</th>
@@ -21,24 +27,30 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.barcode %></td>
-        <td><%= item.quantity %></td>
-        <td><%= item.name %></td>
-        <td><%= item.gender %></td>
-        <td><%= item.age %></td>
-        <td><%= item.donated %></td>
-        <td><%= item.notes %></td>
-        <td><%= item.category_id %></td>
+        <td class="center-align"><%= item.quantity %></td>
+        <td><%= link_to item.name, item_path(item) %></td>
+        <td><%= @gender_list.key(item.gender) %></td>
+        <td><%= @age_list.key(item.age) %></td>
 
-        <td><%= link_to 'Add to Cart', add_to_cart_path(item.id) %></td>
+        <% if item.donated == true%>
+          <td class = "center-align"><i class="mdi-action-done small"></i></td>
+        <% else %>
+          <td class = "center-align"><i class="mdi-content-clear center-align small"></i></td>
+        <% end %>
 
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete %></td>
+        <% if item.notes == ""%>
+          <td class="center-align">-</i></td>
+        <% else %>
+          <td class="center-align"><%= item.notes %></td>
+        <% end %>
+
+        <td><%= item.category.name %></td>
+
+        <td><%= link_to '<i class="mdi-action-add-shopping-cart"></i>'.html_safe, add_to_cart_path(item.id), class: "waves-effect waves-light btn-floating deep-orange lighten-3 tooltipped", data: {position: 'right', tooltip: 'Add to Cart'} %>
+
+        <td><%= link_to '<i class="mdi-navigation-close"></i>'.html_safe, item_path(item), method: 'delete', class: "waves-effect waves-light btn-floating deep-orange darken-4 tooltipped", data: {confirm: "Are you sure you want to delete #{item.name}?", position: 'right', tooltip: 'Delete Item'}%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Item', new_item_path %>

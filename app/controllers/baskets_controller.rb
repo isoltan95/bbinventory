@@ -1,4 +1,7 @@
 class BasketsController < ApplicationController
+
+  include BBHelpers::Cart
+
   before_action :set_basket, only: [:show, :edit, :update, :destroy]
 
   # GET /baskets
@@ -15,6 +18,10 @@ class BasketsController < ApplicationController
   # GET /baskets/new
   def new
     @basket = Basket.new
+    @basket_items_in_cart = get_list_of_items_in_cart
+    if @order_items_in_cart.empty?
+        redirect_to items_path, notice: "No items in cart to checkout"
+    end
   end
 
   # GET /baskets/1/edit

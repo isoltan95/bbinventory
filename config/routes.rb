@@ -4,10 +4,18 @@ Rails.application.routes.draw do
   resources :baskets
   resources :categories
   resources :items
+  resources :carts
 
   #get 'get_new_barcode' => 'items#get_new_barcode', as: :get_new_barcode
   get 'get_new_barcode' => 'items#get_new_barcode', as: :get_new_barcode
   post 'get_new_barcode' => 'items#get_new_item_info', as: :get_new_item_info
+
+  # Named routes - Cart
+  get 'add_to_cart/:id' => 'carts#add_to_cart', as: :add_to_cart
+  get 'show_cart' => 'carts#show_cart', as: :show_cart
+  get 'remove_item/:id' => 'carts#remove_item', as: :remove_item
+  get 'clear' =>  'carts#clear', as: :clear_cart
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -27,6 +27,8 @@ class Item < ActiveRecord::Base
   scope :by_barcode, -> (barcode) { where("code LIKE ?", barcode) }
   scope :for_category, -> (category) { joins(:category).where('categories.name = ?', category) }
   scope :by_age, -> (age) { where(age: age) }
+  scope :in_stock, -> { where("quantity > ?", 0)}
+  scope :not_in_stock, -> { where("quantity = ?", 0)}
 
   # Validations
   validates_presence_of :barcode, :name, :quantity, :category_id, on: :update

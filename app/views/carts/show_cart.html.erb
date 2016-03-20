@@ -18,11 +18,7 @@
 		<% @basket_items_in_cart.each do |oi| %>
 		<tr>
 			<td><%= link_to oi.item.name, item_path(oi.item) %></td>
-<<<<<<< HEAD
-			
-=======
 			<td><%= oi.item.category.name %></td> 
->>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
 			<td><%= oi.quantity %></td>
 			<td><%= link_to 'Remove From Cart', remove_item_path(oi.item.id) %></td>
 		</tr>

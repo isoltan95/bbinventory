@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160320172947) do
-=======
-ActiveRecord::Schema.define(version: 20160318163456) do
->>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
+ActiveRecord::Schema.define(version: 20160317215210) do
 
   create_table "basket_items", force: :cascade do |t|
     t.integer  "quantity"
@@ -38,7 +34,6 @@ ActiveRecord::Schema.define(version: 20160318163456) do
   end
 
   create_table "items", force: :cascade do |t|
-<<<<<<< HEAD
     t.integer  "category_id"
     t.string   "barcode"
     t.string   "name"
@@ -67,18 +62,6 @@ ActiveRecord::Schema.define(version: 20160318163456) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-=======
-    t.string   "barcode"
-    t.integer  "quantity"
-    t.string   "name"
-    t.integer  "gender"
-    t.integer  "age"
-    t.text     "notes"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.boolean  "donated"
->>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
   end
 
 end

@@ -11,13 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-<<<<<<< HEAD
 //= require filterrific/filterrific-jquery
-//= require turbolinks
-//= require_tree .
-=======
-//= require turbolinks
-//= require_tree .
 //= require materialize
->>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
+//= require turbolinks
+//= require_tree .
+
+  $(function(){
+    $(function(){
+      $(".dropdown-button").dropdown({ constrain_width: false });
+      $('select').material_select();
+    });
+  });

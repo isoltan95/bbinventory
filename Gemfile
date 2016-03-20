@@ -12,19 +12,18 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'simple_form', '3.1.0'
+
 gem 'validates_timeliness', '~> 4.0'
 
 # Use ActiveModel has_secure_password
@@ -36,11 +35,17 @@ gem 'validates_timeliness', '~> 4.0'
 
 # used for filtering displayed info
 gem 'has_scope'
+
+gem 'bundler', '>= 1.7.0' # needed for rails-assets-materialize
+source 'https://rails-assets.org' do
+  gem 'rails-assets-materialize'
+end
+gem 'jquery-ui-rails', '5.0.3'
+# used for filtering
 gem 'filterrific'
 gem 'will_paginate', '3.0.7'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-# Additional gems that are very useful in Rails development
+gem 'validates_timeliness', '~> 4.0'
+
 group :development do
   gem 'quiet_assets', '1.1.0'
   gem 'thin', '1.6.3'

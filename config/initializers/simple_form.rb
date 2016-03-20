@@ -90,8 +90,12 @@ SimpleForm.setup do |config|
   # config.collection_wrapper_class = nil
 
   # You can wrap each item in a collection of radio/check boxes with a tag,
+<<<<<<< HEAD
   # defaulting to :span. Please note that when using :boolean_style = :nested,
   # SimpleForm will force this option to be a label.
+=======
+  # defaulting to :span.
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
   # config.item_wrapper_tag = :span
 
   # You can define a class to use in all item wrappers. Defaulting to none.

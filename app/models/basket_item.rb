@@ -16,6 +16,5 @@ class BasketItem < ActiveRecord::Base
 			errors.add(:item, "is not in stock")
 		end
 	end
-
 end
 

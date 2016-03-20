@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+
   belongs_to :category
   has_many :basket_items
   has_many :baskets, through: :basket_items
@@ -36,7 +37,5 @@ class Item < ActiveRecord::Base
   #validate :category_is_in_system, on: :update
 
   private
-
-
 
 end

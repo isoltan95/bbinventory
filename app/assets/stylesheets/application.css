@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+<<<<<<< HEAD
  */
 
  .avg {
@@ -45,3 +46,7 @@ div {
   display:inline-block;
   float:left;
 }
+=======
+ *= require materialize
+ */
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618

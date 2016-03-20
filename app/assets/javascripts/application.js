@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+<<<<<<< HEAD
 //= require filterrific/filterrific-jquery
 //= require turbolinks
 //= require_tree .
+=======
+//= require turbolinks
+//= require_tree .
+//= require materialize
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618

@@ -2,7 +2,11 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+<<<<<<< HEAD
 gem 'rails', '4.2.1'
+=======
+gem 'rails', '4.2.5.1'
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -23,14 +27,22 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+<<<<<<< HEAD
 gem 'simple_form', '3.1.0'
 gem 'validates_timeliness', '~> 4.0'
+=======
+gem 'simple_form'
+gem 'validates_timeliness', '~> 4.0'
+gem 'materialize-sass'
+
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+<<<<<<< HEAD
 # used for filtering displayed info
 gem 'has_scope'
 gem 'filterrific'
@@ -48,11 +60,21 @@ group :development do
   gem 'hirb', '0.7.2'
   gem 'faker', '1.4.3'
 end
+=======
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+<<<<<<< HEAD
 
+=======
+end
+
+group :development do
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

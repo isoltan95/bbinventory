@@ -72,4 +72,3 @@ class BasketItemsController < ApplicationController
       params.require(:basket_item).permit(:quantity, :item_id, :basket_id)
     end
 end
-

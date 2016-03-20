@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   code: MyString
   name: MyString
   category: MyString
@@ -11,3 +12,23 @@ two:
   name: MyString
   category: MyString
   price: 9.99
+=======
+  barcode: MyString
+  quantity: 1
+  name: MyString
+  gender: 1
+  age: 1
+  type: false
+  notes: MyText
+  category_id: 1
+
+two:
+  barcode: MyString
+  quantity: 1
+  name: MyString
+  gender: 1
+  age: 1
+  type: false
+  notes: MyText
+  category_id: 1
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618

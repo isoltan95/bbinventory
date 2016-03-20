@@ -1,5 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :category
+  has_many :basket_items
+  has_many :baskets, through: :basket_items
   
   # get an array of gender types
   GENDER_LIST = [['Neutral', 'Neutral'], ['Girl', 'Girl'], ['Boy', 'Boy']]

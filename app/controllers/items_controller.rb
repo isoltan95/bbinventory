@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    create_cart
     @filterrific = initialize_filterrific(Item, params[:filterrific],
       select_options: { for_category: Category.alphabetical.all.map(&:name),
                         by_age: ['0-2', '3-10', '11-21'] },

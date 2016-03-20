@@ -1,0 +1,29 @@
+<div>
+	<h4>Cart</h4>
+	<% if ! @basket_items_in_cart.empty? %>
+		<%= link_to "Clear Cart", clear_cart_path%>
+		<%= link_to "Checkout", new_basket_path %>
+	<% end %>
+</div>
+
+<% if @basket_items_in_cart.empty? %>
+	"There are no items in cart at this time"
+<%else%>
+	<table>
+		<thead>
+			<th>Item Name</th>
+			<th>Category</th>
+			<th>Quantity</th>
+		</thead>
+		<% @basket_items_in_cart.each do |oi| %>
+		<tr>
+			<td><%= link_to oi.item.name, item_path(oi.item) %></td>
+			
+			<td><%= oi.quantity %></td>
+			<td><%= link_to 'Remove From Cart', remove_item_path(oi.item.id) %></td>
+		</tr>
+		<% end %>
+	</table>
+<% end %>
+
+<%= link_to "Back to Item Listings", items_path %>

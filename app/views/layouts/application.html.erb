@@ -4,31 +4,23 @@
   <title>Bbinventory</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-    <!-- CONTENT -->
-    <div class= "container">
-
-      <!--flash alert box for form -->
-      <% flash.each do |name, msg| %>
-      <div class="alert-box <%= name == :notice ? "success" : "warning" %> radius">
-        <a href="#" class="close">&times;</a>
-        <%= msg %>
-      </div>
-      <% end %>
-
-      <div class="row">
-
-
-      </div>  
+<!-- Top bar NAVIGATION -->
+  <div>
+    <%= render 'partials/top_nav' %>
+  </div>
+  <main class="row">
+    <div class="col s12" id="main_content">
+      <%= render :partial => "partials/flash" %>
+      <%= yield %>
     </div>
-
-<%# yield %>
-
+  </main>
+  <footer class="page-footer light-blue lighten-1">
+    <div class="col s12" id="footer">
+      <%= render partial: 'partials/footer' %>
+    </div>
+  </footer> 
 </body>
-
 </html>

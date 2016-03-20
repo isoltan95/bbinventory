@@ -1,18 +1,11 @@
-<nav class = "light-blue lighten-5">
-  <div class = "nav-wrapper">
-    <!-- Left Nav -->
-    <%= link_to 'Beverly\'s Birthday Inventory', items_path, :class => 'brand-logo center light-blue-text text-darken-4' %>            
-    <!--Bottom nav -->
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-    <ul class = "right hide-on-med-and-down">
-      <li><%# link_to 'About Us', nav_about_path %></li>
-      <li><%# link_to 'Order Online', new_order_path %></li>
-      <li><%# link_to 'Contact Us', nav_contact_path %></li>
+<nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Beverly's Birthdays</a>
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to 'Home', home_path %></li>
     </ul>
-    <ul class = "side-nav" id="mobile-demo">
-      <li><%# link_to 'About Us', nav_about_path %></li>
-      <li><%# link_to 'Order Online', new_order_path %></li>
-      <li><%# link_to 'Contact Us', nav_contact_path %></li>
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Home</a></li>
     </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </div>
 </nav>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
   resources :items
   resources :categories
@@ -16,24 +15,12 @@ Rails.application.routes.draw do
   get 'check_in' => 'items#check_in', as: :check_in
   get 'checkout' => 'items#checkout', as: :checkout
   get 'check_out' => 'items#check_out', as: :check_out
-=======
-  resources :items
-  resources :basket_items
-  resources :baskets
-  resources :categories
-  resources :carts
-
-  get 'get_new_barcode' => 'items#get_new_barcode', as: :get_new_barcode
-  post 'get_new_barcode' => 'items#get_new_item_info', as: :get_new_item_info
->>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618
 
   # Named routes - Cart
   get 'add_to_cart/:id' => 'carts#add_to_cart', as: :add_to_cart
   get 'show_cart' => 'carts#show_cart', as: :show_cart
   get 'remove_item/:id' => 'carts#remove_item', as: :remove_item
   get 'clear' =>  'carts#clear', as: :clear_cart
-<<<<<<< HEAD
-=======
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

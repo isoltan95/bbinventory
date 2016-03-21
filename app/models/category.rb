@@ -12,6 +12,10 @@ class Category < ActiveRecord::Base
     Category.where(name: self.name).size == 1
   end
   
+  def category_name
+    "#{self.name}"
+  end
+  
   # Other methods
   private
 

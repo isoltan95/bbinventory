@@ -1,4 +1,4 @@
-<%= simple_form_for @item, html: { class: 'form-horizontal' } do |f| %>
+<%= simple_form_for @item, html: { class: 'form--inline' } do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -9,17 +9,49 @@
       </ul>
     </div>
   <% end %>
-  <fieldset>
-    <%= f.input :name, input_html: {class: "avg"} %>
-    <%= f.select :gender, Item::GENDER_LIST %>
-    <%= f.select :age, Item::AGE_LIST %>
-    <%= f.input :quantity, input_html: {class: "avg", value: 1 } %>
-    <%= f.select :category_id, Category.alphabetical.all.map(&:name) %>
-    <%= f.input :notes, as: :text, input_html: { class: "materialize-textarea" } %>
-    <%= f.input :donated, as: :boolean, boolean_style: :inline %>
-    <div class="actions">
-      <%= f.submit %>
+  <h6>ITEM INFORMATION</h6>
+  <div class="row">
+    <div class="input-field col s12 m6">
+      <%= f.input :name, label: false, prompt: 'Name' %>
+    </div>
+    <div class="input-field col s12 m6">
+      <%= f.input :barcode, label: false, input_html: { value: @item.barcode } %>
     </div>
   </div>
-  </fieldset>
+  <div class="row">
+    <div class="input-field col s3">
+    <h6>GENDER</h6>
+      <%= f.select :gender, Item::GENDER_LIST %>
+    </div>
+    <div class="input-field col s3">
+    <h6>AGE GROUP</h6>
+      <%= f.select :age, Item::AGE_LIST %>
+    </div>
+    <div class="input-field col s3">
+      <h6>CATEGORY</h6>
+      <%= f.select :category_id, Category.alphabetical.all.collect {|c| [c.name, c.id] }, include_blank: 'Select a category' %>
+    </div>
+    <div class="input-field col s2">
+      <h6>QUANTITY</h6>
+      <%= f.input :quantity, label: false, as: :integer, input_html: { value: 1 } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <h6>NOTES</h6>
+      <%= f.input :notes, label: false, as: :text, input_html: { class: "materialize-textarea" } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s4">
+      <%= f.input :donated, as: :boolean, boolean_style: :inline %>
+    </div>
+  </div>
+  <div class="row">
+    <br><br><br>
+    <div class="actions">
+      <%= f.submit 'Update Item', class: 'pink btn' %>
+    </div>
+  </div>  
 <% end %>
+

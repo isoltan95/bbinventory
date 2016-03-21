@@ -2,8 +2,9 @@
 <html>
 <head>
   <title>Bbinventory</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,12 +12,15 @@
   <div>
     <%= render 'partials/top_nav' %>
   </div>
-  <main class="row">
+  <div id="main">
+  <div class="row">
     <div class="col s12" id="main_content">
       <%= render :partial => "partials/flash" %>
       <%= yield %>
+      <%= javascript_include_tag "application" %>
     </div>
-  </main>
+  </div>
+  </div>
   <footer class="page-footer light-blue lighten-1">
     <div class="col s12" id="footer">
       <%= render partial: 'partials/footer' %>

@@ -20,17 +20,6 @@
   display: block;
  }
 
-.label_box {
-  display: inline-block;
-  padding: 0 3px;
-}
-
-.span1 {
-  float:left;
-  margin-left:20px;
-  width: 15%;
-}
-
 div {
   display: block;
 }
@@ -86,11 +75,30 @@ fieldset {
   display: inline-block;
   height: 10%;
   width: 100%;
-  text-align:center;
-  vertical-align:middle;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .side-bar-option {
   padding: 1rem;
   text-align: center;
+}
+
+.filter-box {
+  display: inline-block;
+  height: 10%;
+}
+
+.filter-box .row {
+  padding-left: 15px;
+  padding-top: 20px;
+}
+
+.filter-box .row input {
+  border-bottom: 2px solid #FFF;
+}
+
+.filter-box .row .select-dropdown {
+  border-bottom: 2px solid #FFF;
+  font-size: 1em;
 }

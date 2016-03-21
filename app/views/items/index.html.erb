@@ -1,27 +1,27 @@
-<div class="container">
+
   <p id="notice"><%= notice %></p>
 
   <%= form_for_filterrific @filterrific do |f| %>
     <div class="row">
       <div class="span1 label_box">
-        <h6>Search by name:</h6>
+        Search by name:
         <%= f.text_field(:by_search, class:'filterrific-periodically-observed') %>
       </div>
       <div class="span1 label_box">
-        <h6>Search by barcode:</h6>
+        Search by barcode:
         <%= f.text_field(:by_barcode, class:'filterrific-periodically-observed') %>
       </div>
       <div class="span1 label_box">
-        <h6>Select category:</h6>
+        Category:
         <%= f.select(:for_category, @filterrific.select_options[:for_category], { include_blank: '- Select -' }) %>
       </div>
      <div class="span1 label_box">
-        <h6>Select age:</h6>
+        Age:
         <%= f.select(:by_age, @filterrific.select_options[:by_age], { include_blank: '- Select -' }) %>
       </div>
       <%= link_to 'Reset filters',reset_filterrific_url %>
     </div>
   <% end %>
-</div>
+
 
 <%= render( partial: 'items/list', locals: { items: @items} )%>

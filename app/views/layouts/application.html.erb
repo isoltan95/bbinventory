@@ -4,17 +4,22 @@
   <title>Bbinventory</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
   <%= csrf_meta_tags %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </head>
 <body>
 <!-- Top bar NAVIGATION -->
   <div>
     <%= render 'partials/top_nav' %>
   </div>
-  <div id="main">
+  <div id="main" class="container">
   <div class="row">
-    <div class="col s12" id="main_content">
+    <!-- SIDEBAR GOES HERE -->
+    <div class="col s12 m3">
+      <%=render partial: 'partials/quick_links' %>
+    </div>
+    <!-- MAIN CONTENT GOES HERE -->
+    <div class="col s12 m9" id="main_content">
       <%= render :partial => "partials/flash" %>
       <%= yield %>
       <%= javascript_include_tag "application" %>

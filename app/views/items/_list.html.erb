@@ -2,28 +2,26 @@
 <% if @items.empty? or @items.nil? %>
   <p><em>There are no items in this category.</em></p>
 <% else %>
-  <div class="container">
-    <ul class="collection">
-    <% @items.each do |item| %>
-      <li class="collection-item avatar">
-        <i class="material-icons circle green">shopping_basket</i>
-        <span class="title"><%= link_to item.name, item_path(item.id) %></span>
-        <p>Age: <%= item.age %><br>
-           Gender: <%= item.gender %>
-        </p>
-        <a href="#!" class="secondary-content"><span class="badge"><%= item.quantity %></span></a>
-        <%= link_to 'Add to Cart', add_to_cart_path(item.id) %>
-        <%= link_to 'Show', item %>
-        <%= link_to 'Edit', edit_item_path(item) %>
-        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-    <% end %>
-    </ul>
-  </div>
+  <ul class="collection">
+  <% @items.each do |item| %>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">shopping_basket</i>
+      <span class="title"><%= link_to item.name, item_path(item.id) %></span>
+      <p>Age: <%= item.age %><br>
+         Gender: <%= item.gender %>
+      </p>
+      <a href="#!" class="secondary-content"><span class="badge"><%= item.quantity %></span></a>
+      <%= link_to 'Add to Cart', add_to_cart_path(item.id) %>
+      <%= link_to 'Show', item %>
+      <%= link_to 'Edit', edit_item_path(item) %>
+      <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+  </ul>
 <% end %>
-<div class="container">
+
 <%= link_to 'Check In', new_item_path %>
 <%= link_to 'Check Out', checkout_path %>
 <%= link_to 'Add a category', new_category_path %>
-</div>
+
 </div>

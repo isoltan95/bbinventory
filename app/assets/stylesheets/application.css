@@ -87,6 +87,7 @@ fieldset {
 .filter-box {
   display: inline-block;
   height: 10%;
+  margin-bottom: 5px;
 }
 
 .filter-box .row {
@@ -98,7 +99,13 @@ fieldset {
   border-bottom: 2px solid #FFF;
 }
 
+.filter-box .row input:select {
+  border-bottom: 2px solid #FFF;
+}
+
 .filter-box .row .select-dropdown {
   border-bottom: 2px solid #FFF;
   font-size: 1em;
 }
+
+

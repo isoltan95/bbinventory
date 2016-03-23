@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   resources :basket_items
   resources :baskets
   resources :carts
+
   
-  root 'items#index'
-  
-  get 'home' => 'items#index', as: :home
+  get 'home' => 'home#home', as: :home
   get 'checkin' => 'items#checkin', as: :checkin
   get 'check_in' => 'items#check_in', as: :check_in
   get 'checkout' => 'items#checkout', as: :checkout
@@ -22,5 +21,7 @@ Rails.application.routes.draw do
   get 'remove_item/:id' => 'carts#remove_item', as: :remove_item
   get 'clear' =>  'carts#clear', as: :clear_cart
 
-
+  # Set the root url
+  root :to => 'home#home'
+  
 end

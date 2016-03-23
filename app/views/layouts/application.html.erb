@@ -12,20 +12,27 @@
   <div>
     <%= render 'partials/top_nav' %>
   </div>
-  <div id="main" class="container">
-  <div class="row">
-    <!-- SIDEBAR GOES HERE -->
-    <div class="col s12 m3">
-      <%=render partial: 'partials/quick_links' %>
-    </div>
+  <% if current_page?(root_path) %>
+  <div id="main">
+    <%= render :partial => "partials/flash" %>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </div>
+  <% else %>
+    <div id="main" class="container">
+      <div class="row">
+        <div class="col s12 m3">
+          <%=render partial: 'partials/quick_links' %>
+        </div>
     <!-- MAIN CONTENT GOES HERE -->
-    <div class="col s12 m9" id="main_content">
-      <%= render :partial => "partials/flash" %>
-      <%= yield %>
-      <%= javascript_include_tag "application" %>
+        <div class="col s12 m9" id="main_content">
+          <%= render :partial => "partials/flash" %>
+          <%= yield %>
+          <%= javascript_include_tag "application" %>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
+  <% end %>
   <footer class="page-footer light-blue lighten-1">
     <div class="col s12" id="footer">
       <%= render partial: 'partials/footer' %>

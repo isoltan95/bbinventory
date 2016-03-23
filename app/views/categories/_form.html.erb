@@ -9,9 +9,10 @@
       </ul>
     </div>
   <% end %>
-  <fieldset>
+  <div class="input-field">
     <%= f.input :name, input_html: {class: "avg"} %>
-    <div class="actions">
-      <%= f.submit %>
-  </fieldset>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Create Category', class: 'pink waves-effect waves-light btn' %>
+  </div>
 <% end %>

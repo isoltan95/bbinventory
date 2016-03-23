@@ -9,12 +9,13 @@
       </ul>
     </div>
   <% end %>
-  <h6>ITEM INFORMATION</h6>
   <div class="row">
     <div class="input-field col s12 m6">
+      <h6>NAME</h6>
       <%= f.input :name, label: false, prompt: 'Name' %>
     </div>
     <div class="input-field col s12 m6">
+      <h6>BARCODE</h6>
       <%= f.input :barcode, label: false, input_html: { value: @item.barcode } %>
     </div>
   </div>
@@ -42,11 +43,11 @@
       <%= f.select :category_id, Category.alphabetical.all.collect {|c| [c.name, c.id] }, include_blank: 'Select a category' %>
     </div>
     <div class="input-field col s4">
-      <h6>CURRENT QUANTITY</h6>
+      <h6>CURRENT QUANTITY:</h6>
       <div class="item_stat"><%= @item.quantity %></div>
     </div>
     <div class="input-field col s4">
-      <h6>INCREASE QUANTITY BY:</h6>
+      <h6>INCREASE QUANTITY BY</h6>
       <%= f.input :quantity, label: false, as: :integer, input_html: { value: 1 } %>
     </div>
   </div>

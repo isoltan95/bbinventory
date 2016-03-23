@@ -19,26 +19,34 @@
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s3">
-    <h6>GENDER</h6>
+    <div class="input-field col s12">
+      <h6>GENDER</h6>
       <% Item::GENDER_LIST.each do |g| %>
         <%= f.radio_button :gender, g %>
         <%= f.label :gender, g, :value => g %>
       <% end %>
     </div>
-    <div class="input-field col s3">
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
     <h6>AGE GROUP</h6>
       <% Item::AGE_LIST.each do |a| %>
         <%= f.radio_button :age, a %>
         <%= f.label :age, a, :value => a %>
       <% end %>
     </div>
-    <div class="input-field col s3">
+  </div>
+  <div class="row">
+    <div class="input-field col s4">
       <h6>CATEGORY</h6>
       <%= f.select :category_id, Category.alphabetical.all.collect {|c| [c.name, c.id] }, include_blank: 'Select a category' %>
     </div>
-    <div class="input-field col s2">
-      <h6>QUANTITY</h6>
+    <div class="input-field col s4">
+      <h6>CURRENT QUANTITY</h6>
+      <div class="item_stat"><%= @item.quantity %></div>
+    </div>
+    <div class="input-field col s4">
+      <h6>INCREASE QUANTITY BY:</h6>
       <%= f.input :quantity, label: false, as: :integer, input_html: { value: 1 } %>
     </div>
   </div>

@@ -12,7 +12,7 @@
   <div>
     <%= render 'partials/top_nav' %>
   </div>
-  <% if current_page?(root_path) %>
+  <% if current_page?(home_path) or current_page?(root_path) %>
   <div id="main">
     <%= render :partial => "partials/flash" %>
     <%= yield %>

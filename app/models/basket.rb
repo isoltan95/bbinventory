@@ -12,4 +12,3 @@ class Basket < ActiveRecord::Base
 	validates_date :checkout_date
 
 end
-

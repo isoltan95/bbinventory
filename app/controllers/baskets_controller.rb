@@ -7,7 +7,7 @@ class BasketsController < ApplicationController
   # GET /baskets
   # GET /baskets.json
   def index
-    @baskets = Basket.all
+    @baskets = Basket.all.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /baskets/1
@@ -40,9 +40,20 @@ class BasketsController < ApplicationController
         # update basket_items from cart
         save_each_item_in_cart(@basket)
 
+        # decrease item quantity in inventory
+        for bi in @basket.basket_items
+          bi.item.quantity -= bi.quantity
+          bi.item.save!
+        end
+
+        # clear cart
+        clear_cart
+        
         format.html { redirect_to @basket, notice: 'Basket was successfully created.' }
         format.json { render :show, status: :created, location: @basket }
       else
+        @basket_items_in_cart = get_list_of_items_in_cart
+
         format.html { render :new }
         format.json { render json: @basket.errors, status: :unprocessable_entity }
       end
@@ -81,6 +92,6 @@ class BasketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def basket_params
-      params.require(:basket).permit(:checkout_date)
+      # params.require(:basket).permit(:checkout_date)
     end
 end

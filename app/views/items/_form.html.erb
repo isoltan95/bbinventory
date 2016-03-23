@@ -21,11 +21,19 @@
   <div class="row">
     <div class="input-field col s3">
     <h6>GENDER</h6>
-      <%= f.select :gender, Item::GENDER_LIST %>
+      <% gl = Item::GENDER_LIST %>
+      <% for i in 0..gl.length-1 %>
+        <%= f.radio_button :gender, i %>
+        <%= f.label :gender, gl[i][0], :value => i %>
+      <% end %>
     </div>
     <div class="input-field col s3">
     <h6>AGE GROUP</h6>
-      <%= f.select :age, Item::AGE_LIST %>
+        <% al = Item::AGE_LIST %>
+        <% for i in 0..al.length-1 %>
+          <%= f.radio_button :age, i %>
+          <%= f.label :age, al[i][0], :value => i %>
+        <% end %>
     </div>
     <div class="input-field col s3">
       <h6>CATEGORY</h6>

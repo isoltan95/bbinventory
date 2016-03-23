@@ -95,22 +95,13 @@ fieldset {
   padding-top: 20px;
 }
 
-.filter-box .row input:active {
-  border-bottom: 2px solid #FFF;
+.filter-box i {
+  padding-top:8px;
 }
-
-.filter-box .row input {
-  border-bottom: 2px solid #FFF;
-}
-
-.inputfield {
-  position:relative;
-  margin-top: 1rem;
-}    
-
-i:active {
+.input-field .prefix.active {
   color: #FFF !important;
 }
+
 .filter-box .row .select-dropdown {
   border-bottom: 2px solid #FFF;
   font-size: 1em;

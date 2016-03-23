@@ -7,8 +7,6 @@ class ItemsController < ApplicationController
   def index
     create_cart
     #@items = Item.all.paginate(:page => params[:page]).per_page(10)
-    @gender_list = Item::GENDER_LIST.to_h
-    @age_list = Item::AGE_LIST.to_h 
     @filterrific = initialize_filterrific(Item, params[:filterrific],
       select_options: { for_category: Category.alphabetical.all.map(&:name),
                         by_age: ['0-2', '3-10', '11-21'] },
@@ -19,8 +17,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @gender_list = Item::GENDER_LIST.to_h
-    @age_list = Item::AGE_LIST.to_h 
+ 
   end
 
   # GET /items/new

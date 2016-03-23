@@ -25,8 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'simple_form', '3.1.0'
 
-gem 'validates_timeliness', '~> 4.0'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -41,9 +39,10 @@ gem 'bundler', '>= 1.7.0' # needed for rails-assets-materialize
 source 'https://rails-assets.org' do
   gem 'rails-assets-materialize'
 end
-gem 'jquery-ui-rails', '5.0.3'
+
 # used for filtering
 gem 'filterrific'
+
 gem 'will_paginate', '3.0.7'
 gem 'validates_timeliness', '~> 4.0'
 

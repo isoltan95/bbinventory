@@ -5,9 +5,9 @@ class Item < ActiveRecord::Base
   has_many :baskets, through: :basket_items
   
   # get an array of gender types
-  GENDER_LIST = [['Neutral', 'Neutral'], ['Girl', 'Girl'], ['Boy', 'Boy']]
+  GENDER_LIST = ['Neutral', 'Girl', 'Boy']
   # get an array of age category (in years)
-  AGE_LIST = [['0-2', '0-2'], ['3-10', '3-10'], ['11-21', '11-21']]
+  AGE_LIST = ['0-2', '3-10', '11-21']
 
   filterrific(
   	default_settings: { sorted_by: 'name'},
@@ -32,8 +32,8 @@ class Item < ActiveRecord::Base
 
   # Validations
   validates_presence_of :barcode, :name, :quantity, :category_id, on: :update
-  validates_inclusion_of :gender, in: GENDER_LIST.map{|key, value| value}, message: "is not an option", on: :update
-  validates_inclusion_of :age, in: AGE_LIST.map{|key, value| value}, message: "is not an option", on: :update
+  validates_inclusion_of :gender, in: GENDER_LIST, message: "is not an option", on: :update
+  validates_inclusion_of :age, in: AGE_LIST, message: "is not an option", on: :update
   validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 1, on: :create
   validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 0, on: :update
   #validate :category_is_in_system, on: :update

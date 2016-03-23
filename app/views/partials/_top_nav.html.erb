@@ -1,8 +1,26 @@
 <nav class="light-blue lighten-1" role="navigation">
   <div class="nav-wrapper container white-text"><%= link_to "Beverly's Birthdays", home_path, class: "brand-logo", id: "logo-container" %>
-    <ul class="right hide-on-med-and-down">
-      <li><%= link_to 'Home', home_path %></li>
-    </ul>
+    <ul class="right">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Items<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        <ul id="dropdown1" class="dropdown-content">
+          <li><%= link_to "View Items", items_path %></li>
+          <li><%= link_to "Check In", new_item_path %></li>
+          <li><%= link_to "Check Out", items_path %></li>
+        </ul> 
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        <ul id="dropdown1" class="dropdown-content">
+          <li><%= link_to "View Categories", categories_path %></li>
+          <li><%= link_to "Add a category", new_category_path %></li>
+        </ul>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Baskets<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        <ul id="dropdown1" class="dropdown-content">
+          <li><%= link_to "View Baskets", baskets_path %></li>
+          <li><%= link_to "Add a Basket", new_basket_path %></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li><%= link_to 'Home', home_path %></li>
+        </ul>
+      </ul>
     <ul id="nav-mobile" class="side-nav">
       <li><a href="#">Home</a></li>
     </ul>

@@ -31,9 +31,9 @@ class Item < ActiveRecord::Base
   scope :not_in_stock, -> { where("quantity = ?", 0)}
 
   # Validations
-  validates_presence_of :barcode, :name, :quantity, :category_id, on: :update
-  validates_inclusion_of :gender, in: GENDER_LIST, message: "is not an option", on: :update
-  validates_inclusion_of :age, in: AGE_LIST, message: "is not an option", on: :update
+  validates_presence_of :barcode, :name, :quantity, :category_id, on: :create
+  validates_inclusion_of :gender, in: GENDER_LIST, message: "is not an option", on: :create
+  validates_inclusion_of :age, in: AGE_LIST, message: "is not an option", on: :create
   validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 1, on: :create
   validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 0, on: :update
   #validate :category_is_in_system, on: :update

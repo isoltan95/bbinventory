@@ -16,6 +16,9 @@
  *= require_tree .
  */
 
+.card-content table td {
+  padding: 5px;
+}
 .avg {
   display: block;
  }

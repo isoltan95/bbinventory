@@ -44,7 +44,13 @@
     </div>
     <div class="input-field col s4">
       <h6>CURRENT QUANTITY:</h6>
-      <div class="item_stat"><%= @item.quantity %></div>
+      <div class="item_stat">
+        <% if !@item.quantity.nil? %>
+          <%= @item.quantity %>
+        <% else %>
+          0
+        <% end %>
+      </div>
     </div>
     <div class="input-field col s4">
       <h6>INCREASE QUANTITY BY</h6>

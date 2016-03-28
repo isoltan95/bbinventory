@@ -21,4 +21,9 @@
       <%= f.select(:by_age, @filterrific.select_options[:by_age], { include_blank: 'Age' }) %>
     </div>
   </div>
+  <div class="col s12 m2">
+    <div class="input-field">
+      <%= f.select(:by_gender, @filterrific.select_options[:by_gender], { include_blank: 'Gender' }) %>
+    </div>
+  </div>
 <% end %>

@@ -16,14 +16,15 @@ class Item < ActiveRecord::Base
   	  :for_category,
   	  :by_search,
   	  :by_barcode,
-      :by_age
+      :by_age,
+      :by_gender
   	] 
   )
 
   #scopes
   scope :alphabetical, -> { order(:name) }
   scope :by_search, -> (search) { where("name LIKE ?", "%#{search}%") }
-  scope :for_gender, -> (gender) { where(gender: gender) }
+  scope :by_gender, -> (gender) { where(gender: gender) }
   scope :by_barcode, -> (barcode) { where("code LIKE ?", barcode) }
   scope :for_category, -> (category) { joins(:category).where('categories.name = ?', category) }
   scope :by_age, -> (age) { where(age: age) }
@@ -31,7 +32,7 @@ class Item < ActiveRecord::Base
   scope :not_in_stock, -> { where("quantity = ?", 0)}
 
   # Validations
-  validates_presence_of :barcode, :name, :quantity, :category_id, on: :create
+  validates_presence_of :name, :quantity, :category_id, on: :create
   validates_inclusion_of :gender, in: GENDER_LIST, message: "is not an option", on: :create
   validates_inclusion_of :age, in: AGE_LIST, message: "is not an option", on: :create
   validates_numericality_of :quantity, only_integer: true, greater_than_or_equal_to: 1, on: :create

@@ -1,5 +1,5 @@
 
-<div id="results">
+<div id="longresults">
 <% if @items.empty? or @items.nil? %>
   <p><em>There are no items in this category.</em></p>
 <% else %>
@@ -42,7 +42,6 @@
   </table>
   <br>
 <% end %>
-</div>
 <%= will_paginate @items, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
 <br>
 <%= link_to 'Check In', new_item_path, class: 'pink waves-effect waves-light btn' %>

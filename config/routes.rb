@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'check_in' => 'items#check_in', as: :check_in
   get 'checkout' => 'items#checkout', as: :checkout
   get 'check_out' => 'items#check_out', as: :check_out
-
+  get 'listall' => 'items#listall', as: :listall
   get 'get_new_barcode' => 'items#get_new_barcode', as: :get_new_barcode
   post 'get_new_barcode' => 'items#get_new_item_info', as: :get_new_item_info
 

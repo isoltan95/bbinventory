@@ -16,6 +16,18 @@ class ItemsController < ApplicationController
     @items = @filterrific.find.paginate(:page=>params[:page]).per_page(5)
   end
 
+  def listall
+    create_cart
+    #@items = Item.all.paginate(:page => params[:page]).per_page(10)
+    @filterrific = initialize_filterrific(Item, params[:filterrific],
+      select_options: { for_category: Category.alphabetical.all.map(&:name),
+                        by_age: ['0-2', '3-10', '11-21'],
+                        by_gender: ['Neutral', 'Boy', 'Girl'] },
+      persistence_id: false
+    ) or return
+    @items = @filterrific.find.paginate(:page=>params[:page]).per_page(5)
+  end
+
   # GET /items/1
   # GET /items/1.json
   def show

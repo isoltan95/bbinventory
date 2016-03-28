@@ -1,0 +1,29 @@
+<%= form_for_filterrific @filterrific do |f| %>
+  <div class="col s12 m3">
+    <div class="input-field white-text">
+      <i class="material-icons prefix">search</i>
+      <%= f.text_field(:by_search, placeholder: 'Search', class:'filterrific-periodically-observed') %>
+    </div>
+  </div>
+  <div class="col s12 m3">
+    <div class="input-field">
+      <i class="material-icons prefix">view_week</i>
+      <%= f.text_field(:by_barcode, placeholder: 'Barcode', class:'filterrific-periodically-observed') %>
+    </div>
+  </div>
+  <div class="col s12 m2">
+    <div class="input-field">
+      <%= f.select(:for_category, @filterrific.select_options[:for_category], { include_blank: 'Category' }) %>
+    </div>
+  </div>
+  <div class="col s12 m2">
+    <div class="input-field">
+      <%= f.select(:by_age, @filterrific.select_options[:by_age], { include_blank: 'Age' }) %>
+    </div>
+  </div>
+  <div class="col s12 m2">
+    <div class="input-field">
+      <%= f.select(:by_gender, @filterrific.select_options[:by_gender], { include_blank: 'Gender' }) %>
+    </div>
+  </div>
+<% end %>

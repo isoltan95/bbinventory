@@ -11,14 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223071923) do
+ActiveRecord::Schema.define(version: 20160317215210) do
+
+  create_table "basket_items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "item_id"
+    t.integer  "basket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "baskets", force: :cascade do |t|
+    t.date     "checkout_date"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
-    t.string   "code"
+    t.integer  "category_id"
+    t.string   "barcode"
     t.string   "name"
-    t.string   "category"
-    t.decimal  "price"
+    t.string   "gender"
+    t.string   "age"
     t.integer  "quantity"
+    t.string   "notes"
+    t.boolean  "donated"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "program_categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

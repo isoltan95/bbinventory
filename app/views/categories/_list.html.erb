@@ -1,0 +1,19 @@
+<% if @categories.empty? %>
+  <p><em>There are no categories. Add one <%=link_to "here.", new_category_path %></em></p>
+<% else %>
+  <table>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.name %></td>
+          <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        </tr><br>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>
+<br>
+
+<%= link_to 'Add a category', new_category_path, class: 'pink waves-effect waves-light btn' %>
+</div>

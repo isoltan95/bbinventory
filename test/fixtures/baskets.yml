@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+<<<<<<< HEAD
+  date: 
+
+two:
+  date: 
+=======
+  checkout_date: 2016-03-17
+
+two:
+  checkout_date: 2016-03-17
+>>>>>>> de33097513c436ed2c6cffe448fc3ff9cb7df618

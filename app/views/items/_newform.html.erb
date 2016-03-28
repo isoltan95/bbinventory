@@ -11,10 +11,10 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code, :autofocus => true %>
+    <%= f.label :barcode %><br>
+    <%= f.text_field :barcode, :autofocus => true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Item', class: 'pink waves-effect waves-light btn' %>
   </div>
 <% end %>

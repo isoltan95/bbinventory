@@ -1,0 +1,10 @@
+
+<p id="notice"><%= notice %></p>
+<div class="filter-box z-depth-2 green white-text">
+  <%= render( partial: 'items/filterform' )%>
+</div>
+<%= link_to 'Reset', reset_filterrific_url %>
+<%= link_to 'List View', :listall %>
+<%= link_to 'Icon View', items_url %>
+<%= render( partial: 'items/longlist', locals: { items: @items } ) %>
+

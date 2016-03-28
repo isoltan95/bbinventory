@@ -12,5 +12,29 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui
+//= require materialize
+//= require filterrific/filterrific-jquery
 //= require_tree .
+
+$(document).ready(function(){
+  $('.slider').slider({full_width: true});
+  $(".dropdown-button").dropdown({ constrain_width: false });
+  $('select').material_select();
+  $(".button-collapse").sideNav();
+  $('.collapsible').collapsible({ accordion : false });
+});
+
+$(document).ready(function() {
+$('select').material_select();
+});
+
+$(".button-collapse").sideNav();
+$( document ).ready(function() { $(".dropdown-button").dropdown(); });
+
+$(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+    $('.close').click(function(){
+    	$(this).parent().hide();
+    })
+ });
